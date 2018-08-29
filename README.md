@@ -1,3 +1,9 @@
+# [V8 Engine]
+
+Node.js code is *interpreted* (not compiled!) by Google's open-source **V8 engine**, which converts Javascript code to C++.
+
+Why? Bescause Javascript was intended to be run in the browser, not in the server, unlike C++. V8 connects these two, and is used by Node.js to give Javascript the low-level functionality needed to be a useful server language.
+
 # [Intro](https://www.w3schools.com/nodejs)
 
 This directory contains an introduction to Node.js, and discusses creating HTTP servers, creating modules, parsing urls, serving HTTP files, and installing npm modules.
