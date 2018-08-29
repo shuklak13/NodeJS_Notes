@@ -14,3 +14,6 @@ myReadStream.on('data', function(chunk){
     console.log('new chunk received');
     myWriteStream.write(chunk);
 })
+
+// Pipe - send data directly from ReadStream to WriteStream
+myReadStream.pipe(myWriteStream)
