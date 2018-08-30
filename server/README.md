@@ -15,3 +15,9 @@ To use templates, import Express with `var express = require('express')`, create
 ## Partial Templates
 
 Partial templates are stored in the `views/partial` directory. They can be used by your other templates as a sort of shared base using `<% include partials/[[partial_template.ejs]] %>`
+
+# Query Strings
+
+    mysite.com/contact?person=ryu&dept=marketing
+
+`person` and `dept` are argument names; `ryu` and `marketing` are the passed-in values; `?` acts as a separator between the route and the arguments; `&` acts as a separator between arguments.

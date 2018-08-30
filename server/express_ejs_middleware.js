@@ -15,7 +15,14 @@ app.use('/assets', express.static('static'))
 // }) 
 
 app.get('/', function(req, res){ res.render("index") })
-app.get('/contact', function(req, res){res.render('contact') })
+
+// parsing a query string in Express
+// try it out with http://localhost:3001/contact?person=joe&dept=marketing
+app.get('/contact', function(req, res){
+    console.log(req.query)
+    res.render('contact', {query_string: req.query}) 
+})
+
 app.get('/profile/name/:name', function(req, res){
     data = {   
         person: req.params.name,
