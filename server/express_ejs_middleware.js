@@ -2,6 +2,10 @@ var express = require('express')
 var app = express();
 app.set('view engine', 'ejs')
 
+// body-parser - useful for parsing URLs
+var bodyParser = require('body-parser')
+var urlencodedParser = bodyParser.urlencoded({extended: false})
+
 // Middleware - this runs before res.render in any of the HTTP calls below
 /*  below is a prebuilt middleware function from express, called static()
     that fetches static assets from the provided folder                 */
@@ -9,10 +13,10 @@ app.set('view engine', 'ejs')
 app.use('/assets', express.static('static'))
 /*  below is a custom middleware function we created,
     to log any url rqeuest sent to our website      */
-// app.use('/', function(req, res, next){
-//     console.log(req.url);
-//     next(); // next() tells us
-// }) 
+app.use('/', function(req, res, next){
+    console.log(req.url);
+    next(); // next() tells us
+}) 
 
 app.get('/', function(req, res){ res.render("index") })
 
@@ -21,6 +25,14 @@ app.get('/', function(req, res){ res.render("index") })
 app.get('/contact', function(req, res){
     console.log(req.query)
     res.render('contact', {query_string: req.query}) 
+})
+
+// POST requests use 2 functions
+    // the first parses the request
+    // the second handles the parsed request
+app.post('/contact', urlencodedParser, function(req, res){
+    console.log(req.body)
+    res.render('contact-success', {data: req.body}) 
 })
 
 app.get('/profile/name/:name', function(req, res){

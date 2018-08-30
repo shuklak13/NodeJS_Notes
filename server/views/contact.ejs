@@ -5,9 +5,11 @@
         <h1>Contact us!</h1>
         <p>Contact the coolest cats on the web right here...</p>
         <p><%= query_string.dept %></p>
-        <form id="contact-form">
+        <form id="contact-form" method="POST" written="/contact">
             <label for="who">Who do you want to contact?</label>
-            <input type="text" name="department", value="<%= query_string.person %>"/>
+            <input type="text" name="who", value="<%= query_string.person %>"/>
+            <label for="who">Which department?</label>
+            <input type="text" name="department", value="<%= query_string.ept %>"/>
             <label for=email">Your email</label>
             <input type="email" name="email", value="<%= query_string.dept %>"/>
             <input type="submit" value="submit"/>
