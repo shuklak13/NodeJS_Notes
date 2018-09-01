@@ -1,6 +1,6 @@
 # V8 Engine
 
-Node.js code is *interpreted* (not compiled!) by Google's open-source **V8 engine**, which converts Javascript code to C++.
+Node.js code is *interpreted* (not compiled!) by Google's open-source **V8 engine**, written in C++, which converts Javascript code to native machine code.
 
 Why? Bescause Javascript was intended to be run in the browser, not in the server, unlike C++. V8 connects these two, and is used by Node.js to give Javascript the low-level functionality needed to be a useful server language.
 
